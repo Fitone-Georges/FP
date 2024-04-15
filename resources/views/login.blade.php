@@ -4,7 +4,12 @@
 @section('content')
     <div class="container">
 
-        <form>
+        <form action="{{route('login.post')}}" method="post" class="ms-auto me-auto" style="width: 500px">
+               @csrf
+            <div class="mb-3">
+                <label for="Name" class="form-label">Name</label>
+                <input type="name" class="form-control" id="name">
+            </div>
             <div class="mb-3">
                 <label for="Email" class="form-label">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">

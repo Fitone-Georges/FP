@@ -4,7 +4,9 @@
 @section('content')
     <div class="container">
 
-        <form>
+        <form action="{{route('registration.post')}}" method="POST" class="ms-auto me-auto" style="width: 500px">
+            @csrf
+
             <div class="mb-3">
                 <label for="Name" class="form-label">Name</label>
                 <input type="name" class="form-control" id="name">
