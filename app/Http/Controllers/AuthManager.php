@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 class AuthManager extends Controller
 {
@@ -26,13 +27,17 @@ class AuthManager extends Controller
 
     function loginPost(Request $request)
     {
+        Log::info('inside auth login');
         $request->validate([
             'email' => 'required|email',
             'password' => 'required'
         ]);
+        Log::info('validation passed');
         $credentials = $request->only('email', 'password');
+        Log::info('credentials check');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended(route('welcome'));
+            Log::info('inside auth attempt');
+            return redirect()->intended(route('home'));
         }
         return redirect(route('login'))->with("error", "login failed");
     }

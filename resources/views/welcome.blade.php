@@ -1,5 +1,5 @@
 @extends('layout')
 @section('title')
 @section('content')
-    WELCOME
+    welcom {{Auth()->user()->name}};
 @endsection
