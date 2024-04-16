@@ -14,6 +14,10 @@ class AuthManager extends Controller
     {
         return view('login');
     }
+    function welcome()
+    {
+        return view('welcome');
+    }
 
     function registration()
     {
@@ -23,13 +27,12 @@ class AuthManager extends Controller
     function loginPost(Request $request)
     {
         $request->validate([
-            'name'=> 'required',
             'email' => 'required|email',
             'password' => 'required'
         ]);
-        $credentials = $request->only('name','email', 'password');
+        $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended(route('home'));
+            return redirect()->intended(route('welcome'));
         }
         return redirect(route('login'))->with("error", "login failed");
     }

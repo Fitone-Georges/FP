@@ -31,15 +31,15 @@ return [
 
     'connections' => [
 
-        'mysqli' => [
-            'driver' => 'mysqli',
+        'mysql' => [
+            'driver' => 'mysql',
             'url' => env('DB_URL'),
             'database' => env('DB_DATABASE', database_path('database.mysql')),
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
-        'mysqli' => [
+        'mysql' => [
             'driver' => 'mysql',
             'url' => env('DB_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),

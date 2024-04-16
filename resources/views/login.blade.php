@@ -7,16 +7,12 @@
         <form action="{{route('login.post')}}" method="post" class="ms-auto me-auto" style="width: 500px">
                @csrf
             <div class="mb-3">
-                <label for="Name" class="form-label">Name</label>
-                <input type="name" class="form-control" id="name">
-            </div>
-            <div class="mb-3">
                 <label for="Email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="email" class="form-control" name="name" aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text">example henryjohn@gmail.com.</div>
             </div>
             <div class="mb-3">
-                <label for="Password" class="form-label">Password</label>
+                <label for="Password" name="password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password">
             </div>
             <div class="mb-3 form-check">
