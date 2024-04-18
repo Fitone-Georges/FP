@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 
 class Userseeder extends Seeder
+
 {
     /**
      * Run the database seeds.
