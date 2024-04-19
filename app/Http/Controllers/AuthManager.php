@@ -41,7 +41,7 @@ class AuthManager extends Controller
             $user = Auth::user();            //from line 39-44 redirecting all the users in the database to the home page
             if($user->is_admin){
                 $users = User::all();
-                return view('welcome', ['users' => $users ?? []]);
+                return view('admin', ['users' => $users ?? []]);
             }
 
             return redirect()->intended(route('home'));
