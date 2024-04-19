@@ -34,11 +34,11 @@ class AuthManager extends Controller
             'password' => 'required'
         ]);
 
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('email', 'password');         //requesting only email & password to login
 
         if (Auth::attempt($credentials)) {
             /** @var User $users */
-            $user = Auth::user();
+            $user = Auth::user();            //from line 39-44 redirecting all the users in the database to the home page
             if($user->is_admin){
                 $users = User::all();
                 return view('welcome', ['users' => $users ?? []]);
@@ -51,21 +51,21 @@ class AuthManager extends Controller
 
     function registrationPost(Request $request)
     {
-        $request->validate([
+        $request->validate([   //from line 54-66 if the users name , email , password are correct return a successful message to the user  else return an error message
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required'
         ]);
         $data['name'] = $request-> input('name');
         $data['email'] = $request-> input('email');
-        $data['password'] =Hash::make( $request-> input('password'));
+        $data['password'] =Hash::make( $request-> input('password'));      //encrypt password on line 61
            $user = User::create($data);
            if(!$user){
                return redirect(route('registration'))->with("error", "registration failed");
            }
            return redirect(route('login'))->with("success", "registration successful");
     }
-    function logout(){
+    function logout(){                     //from line 68 to 71 is the logging out function
         //Session::flush();
         Auth::logout();
         return redirect(route('login'));

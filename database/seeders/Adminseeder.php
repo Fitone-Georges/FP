@@ -15,9 +15,9 @@ class Adminseeder extends Seeder
      */
     public function run(): void
     {
-        try {
+        try {   // try and catch exception handle errors in a program
 
-            User::create([
+            User::create([     //from line 20-28 creating admin data manually to seed in the program
                 'name' => 'admin',
                 'email' => 'admin@gmail.com',
                 'password' => Hash::make('123'),

@@ -12,3 +12,4 @@ Route::get('/registration', [AuthManager::class, 'registration'])->name('registr
 Route::post('/registration', [AuthManager::class, 'registrationPost'])->name('registration.post');
 Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
 
+//from line 6-13 are the route the follows under the controller "AuthManager" retrieving and storing data inserted both in login and registration page

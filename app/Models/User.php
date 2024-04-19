@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 
 /**
  *
- *@property boolean $is_admin
+ *@property boolean $is_admin //a command send to the system to let him understand you are trying to display your database users on your home page
  */
 
 class User extends Authenticatable

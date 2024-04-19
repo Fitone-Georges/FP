@@ -17,7 +17,7 @@ class Userseeder extends Seeder
     public function run(): void
     {
         try {
-            User::factory(6)->create([
+            User::factory(6)->create([       //user factory auto generate user information.line 20 is being creating 6 additional users.
                 'email' => 'admin@admin.com',
                 'password' => Hash::make('123'),
                 'is_admin' => false,
