@@ -7,9 +7,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ *
+ *@property boolean $is_admin //a command send to the system to let him understand you are trying to display your database users on your home page
+ */
+
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.

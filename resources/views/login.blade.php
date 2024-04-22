@@ -1,18 +1,18 @@
 @extends('layout')
-@extends('header')
 @section('title','login')
 @section('content')
     <div class="container">
 
-        <form>
+        <form action="{{route('login.post')}}" method="POST" class="ms-auto me-auto" style="width: 500px">
+               @csrf
             <div class="mb-3">
                 <label for="Email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text">example henryjohn@gmail.com.</div>
             </div>
             <div class="mb-3">
-                <label for="Password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password">
+                <label for="Password" name="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password">
             </div>
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">

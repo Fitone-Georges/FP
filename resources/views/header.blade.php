@@ -6,25 +6,23 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
+                @auth
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('logout')}}">Logout</a>
+                    </li>
+                @else
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="{{route('registration')}}">Registration</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link" href="{{route('login')}}">Login</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown link
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
+                @endauth
+                <span class="navbar-text">
+                  @auth
+                        <h1>welcome {{Auth()->user()->name}}</h1>
+                    @endauth
+                </span>
             </ul>
         </div>
     </div>
