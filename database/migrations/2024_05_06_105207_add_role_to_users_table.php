@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('is_admin')->default(false); // function to determine either it is an admin or not using the function boolean( true or false)
-            });
+            $table->enum('role', ['admin', 'user'])->default('user')->nullable();
+        });
     }
 
     /**
@@ -21,7 +21,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('userstable', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
         });
     }

@@ -13,8 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-        $this->call(Adminseeder::class); //from line 17-18 calling both the users and admin data directly to the seeder  database
-        $this->call(Userseeder::class);
+
+        $this->call(AdminSeeder::class); //from line 17-19 calling both the users and admin data directly to the seeder  database
+        $this->call(UserSeeder::class);
+        $this->call(RoleSeeder::class);
     }
 }

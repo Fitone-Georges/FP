@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Log;
 
 class AuthManager extends Controller
 {
+
     function login()
     {
         return view('login');
@@ -37,13 +38,16 @@ class AuthManager extends Controller
         $credentials = $request->only('email', 'password');         //requesting only email & password to login
 
         if (Auth::attempt($credentials)) {
+
             /** @var User $users */
-            $user = Auth::user();            //from line 39-44 redirecting all the users in the database to the home page
-            if($user->is_admin){
+            $user = Auth::User();
+            Log::info($user);
+            //User::find('admin');
+            if($user->role == 'admin')
+            {
                 $users = User::all();
                 return view('admin', ['users' => $users ?? []]);
             }
-
             return redirect()->intended(route('home'));
         }
         return redirect(route('login'))->with("error", "login failed");

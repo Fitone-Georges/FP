@@ -20,7 +20,7 @@
                 @endauth
                 <span class="navbar-text">
                   @auth
-                        <h1>welcome {{Auth()->user()->name}}</h1>
+                        <b>welcome {{Auth()->user()->name}}</b>
                     @endauth
                 </span>
             </ul>

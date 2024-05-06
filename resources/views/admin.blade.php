@@ -3,23 +3,27 @@
     @section('content')
         <div class="container">
 
-
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">named</th>
-                    <th scope="col">email</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($users as $user)
+            @if(Auth::user()->role=='admin')
+                <table class="table table-striped">
+                    <thead>
                     <tr>
-                        <td>{{$user?->name}}</td>
-                        <td>{{$user?->email}}</td>
+                        <th scope="col">named</th>
+                        <th scope="col">email</th>
+
                     </tr>
-                @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    @foreach($users as $user)
+                        <tr>
+                            <td>{{$user?->name}}</td>
+                            <td>{{$user?->email}}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            @else
+                <h1>back</h1>
+            @endif
+
         </div>
     @endsection

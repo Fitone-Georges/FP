@@ -8,7 +8,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 
-class Userseeder extends Seeder
+class UserSeeder extends Seeder
 
 {
     /**
@@ -16,14 +16,16 @@ class Userseeder extends Seeder
      */
     public function run(): void
     {
+        Log::info('entering admin seeder');
         try {
-            User::factory(6)->create([       //user factory auto generate user information.line 20 is being creating 6 additional users.
-                'email' => 'admin@admin.com',
-                'password' => Hash::make('123'),
-                'is_admin' => false,
+            Log::info('entering admin seeder try');
+            User::factory(6)->create([
+                'password' => Hash::make('567'),
+                'role'=> 'user'
             ]);
+            Log::info('user seed : OK');
         }catch (\Exception $exception){
-            log::info($exception);
+            Log::info($exception);
         }
     }
 }

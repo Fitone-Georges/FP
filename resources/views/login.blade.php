@@ -14,6 +14,10 @@
                 <label for="Password" name="password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" name="password">
             </div>
+            <div>
+
+            </div>
+            <br>
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Click</label>
