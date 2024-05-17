@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Log;
 class AuthManager extends Controller
 {
 
+
     function login()
     {
         return view('login');
@@ -47,10 +48,14 @@ class AuthManager extends Controller
             {
                 $users = User::all();
                 return view('admin', ['users' => $users ?? []]);
+            
+
             }
             return redirect()->intended(route('home'));
         }
         return redirect(route('login'))->with("error", "login failed");
+
+   
     }
 
     function registrationPost(Request $request)

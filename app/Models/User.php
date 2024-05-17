@@ -6,6 +6,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Post;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property string $category
@@ -55,4 +57,8 @@ class User extends Authenticatable
 //    public function isadmin_user(){
 //        return $this->category === 'admin';
 //    }
+    public function post():HasMany {
+        return $this->hasMany(Post::class);
+        
+    }
 }
